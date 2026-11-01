@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session Config</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <h2>Session Config</h2>
+  <p>Cert status: <span id="certStatus">Unknown</span></p>
+  <button id="verifyBtn">Verify</button>
+  <p id="verifyResult"></p>
+  <a href="index.html">← Map</a>
+</div>
+<script>
+const statusEl = document.getElementById('certStatus');
+const resultEl = document.getElementById('verifyResult');
+const stored = localStorage.getItem('appCert');
+statusEl.textContent = stored ? 'Stored' : 'None';
+
+document.getElementById('verifyBtn').onclick = () => {
+  // Simulate verify + store
+  const cert = 'demo-cert-' + Date.now();
+  localStorage.setItem('appCert', cert);
+  statusEl.textContent = 'Stored (verified)';
+  resultEl.textContent = 'Certificate verified and stored for future use.';
+  resultEl.style.color = 'green';
+};
+</script>
+</body>
+</html>

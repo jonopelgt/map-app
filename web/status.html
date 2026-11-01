@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connection Status</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="titleBar" class="title-bar">Checking…</div>
+<div class="container">
+  <p id="details">Connection status</p>
+  <a href="index.html">← Map</a>
+</div>
+<script>
+const titleBar = document.getElementById('titleBar');
+const details = document.getElementById('details');
+// Simulate connection check
+setTimeout(() => {
+  const ok = Math.random() > 0.3; // demo
+  if (ok) {
+    titleBar.textContent = 'OK';
+    titleBar.className = 'title-bar ok';
+    details.textContent = 'Connected successfully.';
+  } else {
+    titleBar.textContent = 'Failed';
+    titleBar.className = 'title-bar failed';
+    details.textContent = 'Connection failed.';
+  }
+}, 500);
+</script>
+</body>
+</html>
